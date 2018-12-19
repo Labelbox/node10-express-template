@@ -14,8 +14,7 @@ app.use(bodyParser.raw());
 app.use(bodyParser.text({ type : "text/*" }));
 app.disable('x-powered-by');
 
-app.post('/*', handler);
-app.get('/*', handler);
+app.use((req, res) => handler(req, res));
 
 const port = process.env.http_port || 3000;
 
