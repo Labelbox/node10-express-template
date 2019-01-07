@@ -9,6 +9,9 @@ RUN apk --no-cache add curl ca-certificates \
     && chmod +x /usr/bin/fwatchdog \
     && apk del curl
 
+# Required for mask-exporter, TODO: trim this dep for FaaS fns not requiring it
+RUN apk add imagemagick
+
 WORKDIR /root/
 
 # Turn down the verbosity to default level.
