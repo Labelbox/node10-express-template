@@ -31,6 +31,7 @@ COPY index.js ./
 WORKDIR /home/app/function
 COPY function/*.json function/.npmrc ./
 RUN npm i || :
+RUN rm .npmrc
 
 # COPY function files and folders
 COPY function/ ./
