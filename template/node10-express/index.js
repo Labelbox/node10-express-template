@@ -9,7 +9,9 @@ const handler = require('./function/handler');
 const bodyParser = require('body-parser')
 
 // app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({
+	limit: '50mb'
+}));
 app.use(bodyParser.raw());
 app.use(bodyParser.text({ type : "text/*" }));
 app.disable('x-powered-by');
